@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Nav = (props) => {
 	return (
-		<nav className="blue-grey lighten-1">
+		<nav className="cyan darken-3">
 			<Link to="/" style={{ marginLeft: '8px' }} className="brand-logo">
 				Movie Quotes
 			</Link>
