@@ -42,6 +42,7 @@ class Register extends Component {
 										type="password"
 									/>
 									<button className="btn cyan darken-3">Sign Up</button>
+									<p className="red-text center-align">{this.props.authError}</p>
 								</form>
 							</div>
 						</div>
@@ -75,4 +76,10 @@ Register = reduxForm({
 	validate: validate
 })(Register);
 
-export default connect(null, { signUp })(Register);
+function mapStateToProps(state) {
+	return {
+		authError: state.user.error
+	};
+}
+
+export default connect(mapStateToProps, { signUp })(Register);

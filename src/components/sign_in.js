@@ -12,7 +12,7 @@ class SignIn extends Component {
 	}
 
 	render() {
-		//handleSubmit came from redux-form
+		//handleSubmit comes from redux-form
 		const { handleSubmit } = this.props;
 
 		return (
@@ -36,6 +36,7 @@ class SignIn extends Component {
 										type="password"
 									/>
 									<button className="btn cyan darken-3">Sign In</button>
+									<p className="red-text center-align">{this.props.authError}</p>
 								</form>
 							</div>
 						</div>
@@ -50,4 +51,10 @@ SignIn = reduxForm({
 	form: 'sign-in-form'
 })(SignIn);
 
-export default connect(null, { signIn })(SignIn);
+function mapStateToProps(state) {
+	return {
+		authError: state.user.error
+	};
+}
+
+export default connect(mapStateToProps, { signIn })(SignIn);
