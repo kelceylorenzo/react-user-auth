@@ -13,6 +13,11 @@ export default function(state = DEFAULT_STATE, action) {
 				auth: true,
 				error: ''
 			};
+		case types.SIGN_OUT:
+			return {
+				auth: false,
+				error: ''
+			};
 		case types.ERROR:
 			return {
 				auth: false,
